@@ -1,6 +1,7 @@
 package com.querydsl.lesson;
 
 import com.querydsl.lesson.domain.Article;
+import com.querydsl.lesson.dto.ArticleDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,21 @@ public class ArticleController {
 
     @GetMapping("/v1")
     public ResponseEntity<Article> v1(@PathVariable Long id) {
-        Article response = articleService.v1(id);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(articleService.v1(id));
+    }
+
+    @GetMapping("/v2")
+    public ResponseEntity<ArticleDto> v2(@PathVariable Long id) {
+        return ResponseEntity.ok(articleService.v2(id));
+    }
+
+    @GetMapping("/v3")
+    public ResponseEntity<ArticleDto> v3(@PathVariable Long id) {
+        return ResponseEntity.ok(articleService.v3(id));
+    }
+
+    @GetMapping("/v4")
+    public ResponseEntity<ArticleDto> v4(@PathVariable Long id) {
+        return ResponseEntity.ok(articleService.v4(id));
     }
 }

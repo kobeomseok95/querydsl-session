@@ -1,6 +1,5 @@
 package com.querydsl.lesson.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,7 +25,6 @@ public class ArticleImage {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "ARTICLE_ID", nullable = false)
-    @JsonIgnore
     private Article article;
 
     @Column(length = 300, nullable = false)

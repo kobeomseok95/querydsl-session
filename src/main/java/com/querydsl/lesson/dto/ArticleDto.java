@@ -1,18 +1,29 @@
 package com.querydsl.lesson.dto;
 
-import lombok.AllArgsConstructor;
+import com.querydsl.core.annotations.QueryProjection;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Getter
 @EqualsAndHashCode(of = "id")
-@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ArticleDto {
 
-    private final Long id;
-    private final String title;
-    private final String articleContents;
-    private final List<ArticleCommentDto> articleCommentDtos;
+    private Long id;
+    private String title;
+    private String articleContents;
+    private List<ArticleCommentDto> comments;
+
+    @QueryProjection
+    public ArticleDto(Long id, String title, String articleContents, List<ArticleCommentDto> comments) {
+        this.id = id;
+        this.title = title;
+        this.articleContents = articleContents;
+        this.comments = comments;
+    }
 }

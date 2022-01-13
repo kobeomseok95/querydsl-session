@@ -12,11 +12,7 @@ spring:
         show_sql: true
         format_sql: true
     database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
   h2:
     console:
       enabled: true
-
-#logging.level:
-#  org.hibernate.SQL: debug
-
-# osiv true / false
